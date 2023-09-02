@@ -18,9 +18,9 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "/src/*": ["./src/*"]
+      "src/*": ["./src/*"]
     }
   }
 }

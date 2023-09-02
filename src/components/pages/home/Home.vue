@@ -17,11 +17,13 @@
 </template>
 
 <script setup lang="ts">
-import HomeThing from './HomeThing.vue';
+import HomeThing from 'src/components/pages/home/HomeThing.vue';
+// import HomeParallax from '/src/components/pages/home/HomeParallax';
+
 import { onMounted, onBeforeUnmount } from 'vue';
 
-let box_a: HTMLDivElement = null;
-let box_b: HTMLDivElement = null;
+let box_a: HTMLDivElement | null = null;
+let box_b: HTMLDivElement | null = null;
 
 const obs = new IntersectionObserver(
   (els) => {
@@ -33,11 +35,11 @@ const obs = new IntersectionObserver(
 );
 
 function WindowScrollListenerA() {
-  if (box_a) box_a.style.transform = `translateX(${window.scrollY * 2}px)`;
+  if (box_a) box_a.style.transform = `translateX(${window.scrollY * 0.5}px)`;
 }
 
 function WindowScrollListenerB() {
-  if (box_b) box_b.style.transform = `translateX(-${window.scrollY * 2}px)`;
+  if (box_b) box_b.style.transform = `translateX(-${window.scrollY * 0.5}px)`;
 }
 
 onMounted(() => {
@@ -47,9 +49,9 @@ onMounted(() => {
   window.addEventListener('scroll', WindowScrollListenerA);
   window.addEventListener('scroll', WindowScrollListenerB);
 
-  obs.observe(document.getElementById('home__el-1'));
-  obs.observe(document.getElementById('home__el-2'));
-  obs.observe(document.getElementById('home__el-3'));
+  obs.observe(document.getElementById('home__el-1')!);
+  obs.observe(document.getElementById('home__el-2')!);
+  obs.observe(document.getElementById('home__el-3')!);
 });
 
 onBeforeUnmount(() => {
@@ -68,8 +70,6 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: space-between;
   flex-flow: column;
-
-  height: 200rem;
 
   padding: 5rem 0rem;
 

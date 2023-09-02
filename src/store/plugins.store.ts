@@ -1,5 +1,5 @@
+import { mutations } from 'src/store/main.store';
 import type { App } from 'vue';
-import { mutations } from '/src/store/main.store';
 
 export const StoreMutKeysPlugin = {
   install: (app: App<Element>) => {
