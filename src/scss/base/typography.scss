@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after,
+html,
+html::before,
+html::after,
+body,
+body::before,
+body::after {
+  font-family: 'Inter', Helvetica, Arial, sans-serif, 'Covered By Your Grace',
+    cursive;
+}
+
+html {
+  // this makes 1rem = 10px
+  // derived from 10px/16px
+  // useful for responsive layouts
+  font-size: 62.5%;
+
+  // max - width
+  // @include respond(phone-m) {
+  //   font-size: 30%;
+  // }
+
+  // // min - width
+  // @include respond(phone-m-min) {
+  //   font-size: 30%;
+  // }
+
+  // @include respond(tab) {
+  //   font-size: 35%;
+  // }
+
+  // @include respond(fourthree) {
+  //   font-size: 45%;
+  // }
+
+  // @include respond(desktop-s) {
+  //   font-size: 55%;
+  // }
+
+  // // normal size
+  // @include respond(desktop) {
+  //   font-size: 62.5%;
+  // }
+
+  // @include respond(twoK) {
+  //   font-size: 100%;
+  // }
+
+  // @include respond(fourK) {
+  //   font-size: 140%;
+  // }
+}
+
+body {
+  font-size: 2rem;
+}

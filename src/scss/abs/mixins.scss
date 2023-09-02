@@ -1,0 +1,95 @@
+@mixin ThemeColors {
+  color: var(--theme-color-text);
+  background-color: var(--theme-color-background);
+}
+
+@mixin PageWidth {
+  max-width: 1280px;
+  margin-inline: $page-margin-inline;
+}
+
+@mixin PageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12.4rem;
+}
+
+@mixin ImageFade($direction, $color) {
+  background: linear-gradient(to $direction, $color, transparent);
+}
+
+@mixin ImageFix {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  & > img {
+    position: absolute;
+    object-fit: cover;
+    @content;
+  }
+}
+
+@mixin GeneralTransition($property) {
+  transition: $property $transition-settings;
+}
+
+@mixin GeneralBorder($size: 1px, $color: var(--theme-color-border)) {
+  border: $size solid $color;
+}
+
+@mixin TextOutline($color, $size) {
+  text-shadow: $color 0px 0px $size, $color 0px 0px $size, $color 0px 0px $size,
+    $color 0px 0px $size, $color 0px 0px $size, $color 0px 0px $size;
+}
+
+@mixin DropShadow {
+  box-shadow: 0px -1px 4px var(--theme-color-shadow),
+    -5px 4px 4px var(--theme-color-shadow),
+    5px 5px 4px var(--theme-color-shadow);
+}
+
+@mixin ButtonStyles {
+  color: white;
+  font-size: 2rem;
+
+  height: 4.4rem;
+  width: 24rem;
+
+  background-color: $blue;
+
+  border: none;
+  border-radius: 0.5rem;
+
+  margin: 1.3rem 4rem;
+}
+
+@mixin ButtonAction {
+  @include GeneralTransition(background-color);
+
+  &:hover {
+    cursor: pointer;
+    background-color: #4d9ee9;
+  }
+  &:active {
+    background-color: #3868a1;
+  }
+}
+
+@mixin LinkDecorReset {
+  & > a,
+  a:visited {
+    text-decoration: none;
+    color: $text-color;
+  }
+}
+
+@mixin ActiveItemCard {
+  // border: 2px transparent solid;
+
+  // border: 2px var(--theme-color-border) solid;
+  &--active {
+    box-shadow: 0px -1px 4px $blue-light, -5px 4px 4px $blue-light,
+      5px 5px 4px $blue-light;
+  }
+}
