@@ -1,5 +1,3 @@
-import '/src/scss/_main/main.scss';
-
 import { createApp } from 'vue';
 import App from '/src/App.vue';
 import { router } from './router/main.router';
