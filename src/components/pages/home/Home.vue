@@ -2,9 +2,13 @@
   <main class="home">
     <div>home</div>
 
-    <HomeThing eckdee="thing" />
+    <div class="home__boxes">
+      <HomeThing eckdee="thing" />
+      <div class="home__box" id="home__box-a">A</div>
+      <div class="home__box" id="home__box-b">B</div>
+    </div>
 
-    <div class="home__intersections">
+    <div class="home__elements">
       <div class="home__el" id="home__el-1">1</div>
       <div class="home__el" id="home__el-2">2</div>
       <div class="home__el" id="home__el-3">3</div>
@@ -16,43 +20,91 @@
 import HomeThing from './HomeThing.vue';
 import { onMounted, onBeforeUnmount } from 'vue';
 
+let box_a: HTMLDivElement = null;
+let box_b: HTMLDivElement = null;
+
 const obs = new IntersectionObserver(
   (els) => {
-    // (els, ob) => {
     els.forEach((el) => {
       el.target.classList.toggle('home__el--active', el.isIntersecting);
-      // unobserver pattern
-      // if (el.isIntersecting) ob.unobserve(el.target);
     });
   },
-  { threshold: 1, rootMargin: '-50px' }
+  { threshold: 1, rootMargin: '-24px' }
 );
 
+function WindowScrollListenerA() {
+  if (box_a) box_a.style.transform = `translateX(${window.scrollY * 2}px)`;
+}
+
+function WindowScrollListenerB() {
+  if (box_b) box_b.style.transform = `translateX(-${window.scrollY * 2}px)`;
+}
+
 onMounted(() => {
+  box_a = <HTMLDivElement>document.getElementById('home__box-a');
+  box_b = <HTMLDivElement>document.getElementById('home__box-b');
+
+  window.addEventListener('scroll', WindowScrollListenerA);
+  window.addEventListener('scroll', WindowScrollListenerB);
+
   obs.observe(document.getElementById('home__el-1'));
+  obs.observe(document.getElementById('home__el-2'));
+  obs.observe(document.getElementById('home__el-3'));
 });
 
 onBeforeUnmount(() => {
+  window.removeEventListener('scroll', WindowScrollListenerA);
+  window.removeEventListener('scroll', WindowScrollListenerB);
+
   obs.disconnect();
 });
 </script>
 
 <style lang="scss" scoped>
 .home {
+  @include PageWidth;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-flow: column;
 
-  height: 150rem;
+  height: 200rem;
 
-  &__intersections {
+  padding: 5rem 0rem;
+
+  &__boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+
+    overflow: hidden;
+
+    height: 100%;
+    width: 100%;
+  }
+
+  &__elements {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-flow: column;
 
     height: 50rem;
+  }
+
+  &__box {
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 5rem;
+    width: 5rem;
+
+    background-color: white;
   }
 
   &__el {
@@ -77,6 +129,9 @@ onBeforeUnmount(() => {
 
       opacity: 1;
       visibility: visible;
+
+      &:nth-child(1) {
+      }
     }
   }
 }
