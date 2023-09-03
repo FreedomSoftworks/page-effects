@@ -19,8 +19,6 @@ header {
   left: 0;
 
   width: 100%;
-
-  background-color: #222;
 }
 
 .main {

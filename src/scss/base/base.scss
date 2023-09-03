@@ -1,6 +1,10 @@
 $text-color: white;
 $background-color: black;
 
+html {
+  // scroll-behavior: smooth;
+}
+
 body {
   background-color: $background-color;
   color: $text-color;

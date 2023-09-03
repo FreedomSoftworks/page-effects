@@ -40,6 +40,45 @@
 
 <script setup lang="ts">
 import Header from 'src/components/global/header/Header.vue';
+import { onBeforeUnmount, onMounted } from 'vue';
+
+let moon: HTMLDivElement | null = null;
+let mountain: HTMLDivElement | null = null;
+let trees: HTMLDivElement | null = null;
+
+function MoonListener(): void {
+  if (moon)
+    moon.style.transform = `
+     translate(
+      ${window.scrollY * 0.15}px, 
+      ${window.scrollY * 0.75}px
+      )`;
+}
+
+function MountainListener(): void {
+  if (mountain)
+    mountain.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+}
+
+function TreesListener(): void {
+  if (trees) trees.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+}
+
+onMounted(() => {
+  moon = <HTMLDivElement>document.getElementById('parallax__moon');
+  mountain = <HTMLDivElement>document.getElementById('parallax__mountain');
+  trees = <HTMLDivElement>document.getElementById('parallax__trees-2');
+
+  window.addEventListener('scroll', MoonListener);
+  window.addEventListener('scroll', MountainListener);
+  window.addEventListener('scroll', TreesListener);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', MoonListener);
+  window.removeEventListener('scroll', MountainListener);
+  window.removeEventListener('scroll', TreesListener);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -75,7 +114,7 @@ import Header from 'src/components/global/header/Header.vue';
 
     position: absolute;
     top: 10%;
-    right: 30%;
+    right: 25%;
 
     height: 15rem;
 
@@ -86,7 +125,7 @@ import Header from 'src/components/global/header/Header.vue';
     z-index: -25;
 
     position: absolute;
-    top: 0;
+    top: -5%;
     left: 0;
 
     height: 100%;
