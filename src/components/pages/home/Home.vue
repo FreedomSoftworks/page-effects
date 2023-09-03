@@ -32,12 +32,12 @@ const obs = new IntersectionObserver(
   { threshold: 1, rootMargin: '-24px' }
 );
 
-function WindowScrollListenerA() {
+function WindowScrollListenerA(): void {
   if (box_a) box_a.style.transform = `translateX(${window.scrollY * 0.5}px)`;
 }
 
-function WindowScrollListenerB() {
-  if (box_b) box_b.style.transform = `translateX(-${window.scrollY * 0.5}px)`;
+function WindowScrollListenerB(): void {
+  if (box_b) box_b.style.transform = `translateX(-${window.scrollY * 0.25}px)`;
 }
 
 onMounted(() => {
