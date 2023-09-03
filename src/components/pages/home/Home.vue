@@ -1,9 +1,8 @@
 <template>
   <main class="home">
-    <div>home</div>
+    <HomeParallax />
 
     <div class="home__boxes">
-      <HomeThing eckdee="thing" />
       <div class="home__box" id="home__box-a">A</div>
       <div class="home__box" id="home__box-b">B</div>
     </div>
@@ -17,8 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import HomeThing from 'src/components/pages/home/HomeThing.vue';
-// import HomeParallax from '/src/components/pages/home/HomeParallax';
+import HomeParallax from 'src/components/pages/home/HomeParallax.vue';
 
 import { onMounted, onBeforeUnmount } from 'vue';
 
@@ -64,14 +62,10 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .home {
-  @include PageWidth;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-flow: column;
-
-  padding: 5rem 0rem;
 
   &__boxes {
     display: flex;
@@ -92,6 +86,8 @@ onBeforeUnmount(() => {
     flex-flow: column;
 
     height: 50rem;
+
+    margin-bottom: 8rem;
   }
 
   &__box {

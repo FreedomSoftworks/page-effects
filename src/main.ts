@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import App from 'src/App.vue';
+import App from 'src/components/App.vue';
 import { router } from 'src/router/main.router';
 import { key, store } from 'src/store/main.store';
 import { StoreMutKeysPlugin } from 'src/store/plugins.store';
