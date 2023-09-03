@@ -56,12 +56,19 @@ function MoonListener(): void {
 }
 
 function MountainListener(): void {
-  if (mountain)
-    mountain.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+  if (mountain) {
+    mountain.style.bottom = `${window.scrollY * -0.5}px`;
+    mountain.style.transform = `translateX(${window.scrollY * -0.1}px)`;
+  }
+  // mountain.style.transform = `translateY(${window.scrollY * 0.5}px)`;
 }
 
 function TreesListener(): void {
-  if (trees) trees.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+  if (trees) {
+    // trees.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+    trees.style.bottom = `${window.scrollY * -0.25}px`;
+    trees.style.left = `${window.scrollY * -0.15}px`;
+  }
 }
 
 onMounted(() => {
@@ -114,7 +121,7 @@ onBeforeUnmount(() => {
 
     position: absolute;
     top: 10%;
-    right: 25%;
+    right: 30%;
 
     height: 15rem;
 
@@ -125,11 +132,10 @@ onBeforeUnmount(() => {
     z-index: -25;
 
     position: absolute;
-    top: -5%;
-    left: 0;
+    bottom: 0;
+    left: -25%;
 
-    height: 100%;
-    width: 100%;
+    width: 150%;
 
     object-fit: cover;
   }
@@ -151,13 +157,12 @@ onBeforeUnmount(() => {
     z-index: -1;
 
     position: absolute;
-    top: 10%;
+    bottom: 0;
     left: 0;
 
-    // transform: scale(0.8);
+    transform: translateY(20rem) scaleX(-1);
 
-    height: 100%;
-    width: 100%;
+    width: 115%;
 
     object-fit: contain;
   }
