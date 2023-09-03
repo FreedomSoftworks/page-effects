@@ -18,17 +18,17 @@ header {
   top: 0;
   left: 0;
 
-  background-color: #222;
-  height: 4rem;
   width: 100%;
+
+  background-color: #222;
 }
 
 .main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 1rem 10rem;
+  height: 5rem;
+  margin-inline: 5rem;
 }
 
 .left {
