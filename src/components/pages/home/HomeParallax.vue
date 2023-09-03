@@ -3,31 +3,36 @@
     <Header />
     <img
       class="parallax__stars"
+      id="parallax__stars"
       src="/public/img/parallax/stars.jpg"
       alt="stars"
     />
 
     <img
       class="parallax__moon"
+      id="parallax__moon"
       src="/public/img/parallax/moon.png"
       alt="stars"
     />
 
     <img
       class="parallax__mountain"
-      src="/public/img/parallax/mountain.png"
+      id="parallax__mountain"
+      src="/public/img/parallax/mountain-2.png"
       alt="stars"
     />
+
+    <!-- <img
+      class="parallax__trees-1"
+      id="parallax__trees-1"
+      src="/public/img/parallax/trees-1-1.png"
+      alt="stars"
+    /> -->
 
     <img
       class="parallax__trees-2"
-      src="/public/img/parallax/trees-2.png"
-      alt="stars"
-    />
-
-    <img
-      class="parallax__trees-1"
-      src="/public/img/parallax/trees-1.png"
+      id="parallax__trees-2"
+      src="/public/img/parallax/trees-2-2.png"
       alt="stars"
     />
   </section>
@@ -90,30 +95,32 @@ import Header from 'src/components/global/header/Header.vue';
     object-fit: cover;
   }
 
+  // &__trees-1 {
+  //   z-index: -10;
+
+  //   position: absolute;
+  //   top: -10%;
+  //   left: 0;
+
+  //   height: 100%;
+  //   width: 100%;
+
+  //   object-fit: cover;
+  // }
+
   &__trees-2 {
-    z-index: -10;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    height: 100%;
-    width: 100%;
-
-    object-fit: cover;
-  }
-
-  &__trees-1 {
     z-index: -1;
 
     position: absolute;
-    top: 0;
+    top: 10%;
     left: 0;
+
+    // transform: scale(0.8);
 
     height: 100%;
     width: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 </style>
