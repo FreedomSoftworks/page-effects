@@ -42,9 +42,17 @@
 import Header from 'src/components/global/header/Header.vue';
 import { onBeforeUnmount, onMounted } from 'vue';
 
+let stars: HTMLDivElement | null = null;
 let moon: HTMLDivElement | null = null;
 let mountain: HTMLDivElement | null = null;
 let trees: HTMLDivElement | null = null;
+
+function StarsListener(): void {
+  if (stars) {
+    stars.style.top = `${window.scrollY * 0.75}px`;
+    stars.style.left = `${window.scrollY * 0.1}px`;
+  }
+}
 
 function MoonListener(): void {
   if (moon)
@@ -72,16 +80,19 @@ function TreesListener(): void {
 }
 
 onMounted(() => {
+  stars = <HTMLDivElement>document.getElementById('parallax__stars');
   moon = <HTMLDivElement>document.getElementById('parallax__moon');
   mountain = <HTMLDivElement>document.getElementById('parallax__mountain');
   trees = <HTMLDivElement>document.getElementById('parallax__trees-2');
 
+  window.addEventListener('scroll', StarsListener);
   window.addEventListener('scroll', MoonListener);
   window.addEventListener('scroll', MountainListener);
   window.addEventListener('scroll', TreesListener);
 });
 
 onBeforeUnmount(() => {
+  window.removeEventListener('scroll', StarsListener);
   window.removeEventListener('scroll', MoonListener);
   window.removeEventListener('scroll', MountainListener);
   window.removeEventListener('scroll', TreesListener);
@@ -110,8 +121,8 @@ onBeforeUnmount(() => {
     top: 0;
     left: 0;
 
-    height: 100%;
-    width: 100%;
+    // height: 100%;
+    width: 105%;
 
     object-fit: cover;
   }
