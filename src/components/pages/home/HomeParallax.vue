@@ -20,16 +20,16 @@
     />
 
     <img
+      class="parallax__trees-2"
+      src="/public/img/parallax/trees-2.png"
+      alt="stars"
+    />
+
+    <img
       class="parallax__trees-1"
       src="/public/img/parallax/trees-1.png"
       alt="stars"
     />
-
-    <!-- <img
-      class="parallax__trees-2"
-      src="/public/img/parallax/trees-2.png"
-      alt="stars"
-    /> -->
   </section>
 </template>
 
@@ -87,10 +87,10 @@ import Header from 'src/components/global/header/Header.vue';
     height: 100%;
     width: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
   }
 
-  &__trees-1 {
+  &__trees-2 {
     z-index: -10;
 
     position: absolute;
@@ -103,11 +103,11 @@ import Header from 'src/components/global/header/Header.vue';
     object-fit: cover;
   }
 
-  &__trees-2 {
+  &__trees-1 {
     z-index: -1;
 
     position: absolute;
-    top: 20%;
+    top: 0;
     left: 0;
 
     height: 100%;
