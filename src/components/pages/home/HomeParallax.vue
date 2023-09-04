@@ -121,8 +121,9 @@ onBeforeUnmount(() => {
     top: 0;
     left: 0;
 
-    // height: 100%;
-    width: 105%;
+    transform: translateX(-10rem);
+
+    width: 110%;
 
     object-fit: cover;
   }
