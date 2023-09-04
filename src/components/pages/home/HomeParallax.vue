@@ -123,6 +123,7 @@ onBeforeUnmount(() => {
 
     transform: translateX(-10rem);
 
+    height: 110%;
     width: 110%;
 
     object-fit: cover;
